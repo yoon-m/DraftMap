@@ -18,17 +18,17 @@
     * HTML5 Canvas
         - Used to render data to the screen
 * Implementation Timeline
-    Day 1:
+    * Day 1:
         - Become familiar with the basics of D3 
         - Test external API using Postman
         - Set up initial Node API backend to test API
-    Day 2:
+    * Day 2:
         - Set up frontend/backend communication
         - Set up initial page layout with the map
         - Become familiar with making graphs/plots using D3
-    Day 3: 
+    * Day 3: 
         - Populate drafted players' hometown location data in the frontend
         - Become familiar with manipulating data using D3
-    Day 4:
+    * Day 4:
         - Work on styling the first MVP
         - Start on getting the first few filters (position, height, weight)
