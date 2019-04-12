@@ -11,12 +11,12 @@
     * BONUS
         - Will have filters for common measurables (position, height, weight, wingspan, standing vertical leap, etc.).
 ## Architecture and Technologies
-    * Google Maps API
-        - Used to plot hometown locations of drafted players
     * D3
         - Used to bind data to the DOM and apply data driven transformations
-    * HTML5 Canvas
-        - Used to render data to the screen
+    * D3 Geojson
+        - Used to render shapes based on geographical information
+    * GoogleMaps API
+        - Used to geocode drafted players' college locations
 ## Implementation Timeline
     * Day 1:
         - Become familiar with the basics of D3 
