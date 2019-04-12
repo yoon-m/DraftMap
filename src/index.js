@@ -143,7 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .getContext('2d');
 
     let projection = d3.geoOrthographic()
-        .scale(250);
+        .center([0, 0]);
+    
+    let c1 = projection([0.1278, 51.5074]);
+    let c2 = projection([-75.2829, 40.0250]);
 
     let geoGenerator = d3.geoPath()
         .projection(projection)
@@ -151,9 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .context(context);
 
     let yaw = 90;
+    let roll = 0;
 
     function update() {
-        projection.rotate([yaw, -25])
+        projection.rotate([yaw, roll])
 
         context.clearRect(0, 0, 800, 600);
 
@@ -173,23 +177,26 @@ document.addEventListener("DOMContentLoaded", () => {
         context.stroke();
 
         yaw -= 0.5
+        roll -= 0.1
 
+        let latLongConverter = d3.geoOrthographic();
 
         // Circles
-        let circle1 = d3.geoCircle().center([0.1278, 51.5074]).radius(15)
+        let circle1 = d3.geoCircle().center(c1).radius(5)
         context.beginPath();
         context.strokeStyle = 'red';
         geoGenerator(circle1());
         context.stroke();
 
-        let circle2 = d3.geoCircle().center([0.8, 5.5074]).radius(15)
+        let circle2 = d3.geoCircle().center(c2).radius(5)
         context.beginPath();
         context.strokeStyle = 'red';
         geoGenerator(circle2());
         context.stroke();
+
+        console.log(c1);
+        console.log(projection.invert(c1));
     }
-
-
 
     // REQUEST DATA
     d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
