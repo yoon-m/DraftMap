@@ -1,0 +1,2 @@
+// 2010
+["Washington", "Philadelphia", "New Jersey", "Minnesota", "Sacramento", "Golden State", "Detroit", "Los Angeles", "Utah", "Indiana", "New Orleans", "Memphis", "Toronto", "Houston", "Milwaukee", "Minnesota", "Chicago", "Oklahoma City", "Boston", "San Antonio", "Oklahoma City", "Portland", "Minnesota", "Atlanta", "Memphis", "Oklahoma City", "New Jersey", "Memphis", "Orlando", "Washington"]
