@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(res => {
                         res.json().then(locations => {
                             dataLocs2010.push([ locations.results[0].formatted_address, locations.results[0].geometry.location ]);
-                            console.log(dataLocs2010.length);
                         });
                         
                     });

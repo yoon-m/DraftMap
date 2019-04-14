@@ -1,7 +1,31 @@
 #content {
-    margin-top: 5%;
+    margin-top: 3%;
+    display: flex;
 }
 
 body {
     background-color: black;
+    font-family: 'Lora', serif;
+}
+
+body canvas {
+    margin-right: 10%;
+}
+
+h1 {
+    color: gold;
+    text-align: center;
+    margin: 1%;
+    font-size: 32px;
+}
+
+h3 {
+    color: gold;
+    text-align: center;
+    font-size: 20px;
+    margin: 5% 0;
+}
+
+.xbox-container {
+    color: gold;
 }
