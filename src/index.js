@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Circles
         test.forEach(datum => {
-            let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1.2)
+            let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1.2);
             context.beginPath();
             context.strokeStyle = 'red';
             geoGenerator(circle());
