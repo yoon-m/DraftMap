@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
     <link rel="stylesheet" type="text/css" href="./stylesheets/test.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <script src="https://unpkg.com/topojson-client@3"></script>
     <script src="https://unpkg.com/d3-array@1"></script>
     <script src="https://unpkg.com/d3-collection@1"></script>
@@ -20,11 +23,24 @@
     <script src="./bundle.js"></script>
 </head>
     <body>
-        <h1>NBA Draft Data</h1>
+        <div class='header-container'>
+            <div class='header-left'>
+                <h1>NBA Draft Data</h1>
+            </div>
+
+            <div class='header-right'>
+                <a href="http://www.github.com/yoon-m"><i class="fab fa-github-square"></i></a>
+                <a href="http://www.linkedin.com/in/yoon-m"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:myoon1098@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <h4>Created by: Michael Yoon</h4>
+        
         <div id='content'>
             <canvas width='730' height='510'></canvas>
             <div class='xbox-container'>
-                <h3>Select draft classes:</h3>
+                <h3>Select draft classes to display:</h3>
                 <input type="checkbox" name="2010" class='xbox' checked>2010<br>
                 <input type="checkbox" name="2011" class='xbox' checked>2011<br>
                 <input type="checkbox" name="2012" class='xbox' checked>2012<br>

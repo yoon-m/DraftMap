@@ -28,4 +28,39 @@ h3 {
 
 .xbox-container {
     color: gold;
+    border: 1px solid gold;
+    border-radius: 5px;
+    padding: 1% 15% 2% 2%;
+    height: fit-content;
+}
+
+.header-container a {
+    color: gold;
+    font-size: 50px;
+    padding: 0% 5% 0 0;
+}
+
+.fab:hover, .fas:hover {
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    width: 70%;
+}
+
+.header-right {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+h4 {
+    color: gold;
+    text-align: right;
+    margin-right: 1%;
 }
