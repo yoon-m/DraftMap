@@ -1,16 +1,135 @@
-import test from './test';
-
 document.addEventListener("DOMContentLoaded", () => {
-    
     // GET DATA FROM 2010 
     let dataLocs2010 = [];
     let data2010 = [];
+    let test = [
+        [-84.2700179, 37.8393332],
+        [-83.03091429999999, 40.0141905],
+        [-78.9382286, 36.0014258],
+        [-5.9844589, 37.3890924],
+        [2.1201427, 41.3800412],
+        [-78.9382286, 36.0014258],
+        [-84.2700179, 37.8393332],
+        [-99.9018131, 31.9685988],
+        [113.840688, 22.996138],
+        [-84.2700179, 37.8393332],
+        [-78.9382286, 36.0014258],
+        [-111.0937311, 34.0489281],
+        [-88.7878678, 43.7844397],
+        [-98.4842465, 39.011902],
+        [-115.1398296, 36.1699412],
+        [-85.7584557, 38.2526647],
+        [-84.2700179, 37.8393332],
+        [-111.0937311, 34.0489281],
+        [-76.14742439999999, 43.0481221],
+        [-84.2700179, 37.8393332],
+        [-119.4179324, 36.778261],
+        [-71.4128343, 41.8239891],
+        [-97.092877, 35.0077519],
+        [-98.4842465, 39.011902],
+        [-88.3214979, 36.6163842],
+        [-85.7584557, 38.2526647],
+        [-78.9382286, 36.0014258],
+        [-120.7401385, 47.7510741],
+        [-78.9382286, 36.0014258],
+        [-91.96233269999999, 30.9842977],
+        [-84.2700179, 37.8393332],
+        [-111.0937311, 39.3209801],
+        [-118.2436849, 34.0522342],
+        [-76.14742439999999, 43.0481221],
+        [-91.8318334, 35.20105],
+        [-107.2902839, 43.0759678],
+        [-86.2353388, 41.7055716],
+        [-78.6568942, 37.4315734],
+        [-111.0937311, 39.3209801],
+        [34.7918017, 32.0622124],
+        [-91.96233269999999, 30.9842977],
+        [-84.4821719, 42.701848],
+        [-3.686238, 40.44255],
+        [1.0816269, 49.430962],
+        [-117.4015208, 47.66644729999999],
+        [-79.7971665, 36.6602066],
+        [-86.8026551, 36.1447034],
+        [-84.38528190000001, 33.753068],
+        [23.7275388, 37.9838096],
+        [20.4681206, 44.8167455],
+        [-111.0937311, 34.0489281],
+        [28.8808207, 41.0077558],
+        [-85.60236429999999, 44.3148443],
+        [15.9636945, 45.8025412],
+        [19.6209662, 44.9794968],
+        [-97.1143046, 31.5497007],
+        [-88.7878678, 43.7844397],
+        [-87.93044549999999, 43.038473],
+        [-118.2436849, 34.0522342],
+        [-106.7479059, 32.2787745],
+        [-84.2984889, 30.4418778],
+        [-75.23993279999999, 39.9951217],
+        [-78.6820946, 35.7846633],
+        [-79.01929969999999, 35.7595731],
+        [-120.7401385, 47.7510741],
+        [-118.2436849, 34.0522342],
+        [-86.8026551, 36.1447034],
+        [-78.9382286, 36.0014258],
+        [-111.0937311, 39.3209801],
+        [-117.4015208, 47.66644729999999],
+        [-99.9018131, 31.9685988],
+        [-84.2700179, 37.8393332],
+        [-80.2778951, 36.1340985],
+        [-95.94719189999999, 41.2653105],
+        [-76.14742439999999, 43.0481221],
+        [-79.01929969999999, 35.7595731],
+        [7.764862099999999, 48.59991180000001],
+        [-84.2984889, 30.4418778],
+        [138.5460497, -34.900438],
+        [-120.7401385, 47.7510741],
+        [-111.0937311, 34.0489281],
+        [-85.60236429999999, 44.3148443],
+        [-79.01929969999999, 35.7595731],
+        [-86.92119459999999, 40.4237054],
+        [-84.4821719, 42.701848],
+        [-86.1349019, 40.2671941],
+        [-78.9382286, 36.0014258],
+        [-118.2436849, 34.0522342],
+        [-99.9018131, 31.9685988],
+        [-84.2700179, 37.8393332],
+        [-105.7820674, 39.5500507],
+        [-75.3491813, 40.0375832],
+        [-97.092877, 35.0077519],
+        [-15.5474373, 27.9202202],
+        [-85.60236429999999, 44.3148443],
+        [-78.9382286, 36.0014258],
+        [-86.902298, 32.3182314],
+        [-80.4549026, 38.5976262],
+        [-3.6784325, 40.4266325],
+        [-84.2700179, 37.8393332],
+        [-84.39628499999999, 33.7756178],
+        [-71.16849450000001, 42.3355488],
+        [-116.2014604, 43.6026952],
+        [-91.8318334, 37.9642529],
+        [-76.64127119999999, 39.0457549],
+        [-120.5542012, 43.8041334],
+        [-101.8782822, 33.5842591],
+        [-97.29286929999999, 37.7193933],
+        [-84.4821719, 42.701848],
+        [-82.6086662, 27.4408534],
+        [-84.5120196, 39.1031182],
+        [-99.7595898, 29.2177737],
+        [-80.1917902, 25.7616798],
+        [15.9665938, 45.7798131],
+        [-75.3491813, 40.0375832],
+        [-78.9382286, 36.0014258],
+        [-84.2700179, 37.8393332],
+        [-84.2700179, 37.8393332],
+        [-75.3491813, 40.0375832],
+        [-75.3491813, 40.0375832]
+    ];
 
     // d3.json("src/data/draft_picks2010.json", function(err, data) {
     //     for (let i = 0; i < data.resultSets[0].rowSet.length; i++) {
     //         data2010.push(data.resultSets[0].rowSet[i][7]);
     //     }
-       
+
     //     data2010.forEach(datum => {
     //         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${datum}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`)
     //             .then(res => {
@@ -21,88 +140,90 @@ document.addEventListener("DOMContentLoaded", () => {
     //         });
     // });
 
-    let promise1 = new Promise(function (resolve, reject) {
-        
+    // let promise1 = new Promise(function (resolve, reject) {
 
-        d3.json("src/data/draft_locations.json", function (err, data) {
-            for (let i = 0; i < data.resultSets[0].rowSet.length; i++) {
-                data2010.push(data.resultSets[0].rowSet[i][10]);
-            }
 
-            data2010.forEach(datum => {
-                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${datum}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`)
-                .then(res => {
-                        res.json().then(locations => {
-                            dataLocs2010.push([ locations.results[0].formatted_address, locations.results[0].geometry.location ]);
-                        });
-                        
-                    });
-            });
-        });
-        
-        resolve(dataLocs2010);
-        
-    });
-    
-    promise1.then(function(data2010) {
-        let geojson = {}
+    //     d3.json("src/data/draft_locations.json", function (err, data) {
+    //         for (let i = 0; i < data.resultSets[0].rowSet.length; i++) {
+    //             data2010.push(data.resultSets[0].rowSet[i][10]);
+    //         }
 
-        let context = d3.select('#content canvas')
-            .node()
-            .getContext('2d');
+    //         data2010.forEach(datum => {
+    //             fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${datum}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`)
+    //             .then(res => {
+    //                     res.json().then(locations => {
+    //                         dataLocs2010.push([ locations.results[0].formatted_address, locations.results[0].geometry.location ]);
+    //                     });
 
-        let projection = d3.geoOrthographic();
+    //                 });
+    //         });
+    //     });
 
-        let geoGenerator = d3.geoPath()
-            .projection(projection)
-            .pointRadius(4)
-            .context(context);
+    //     resolve(dataLocs2010);
 
-        let yaw = 150;
+    // });
 
-        function update() {
-            projection.rotate([yaw, -23])
+    // promise1.then(function(data2010) {
 
-            context.clearRect(0, 0, 800, 600);
+    // });
 
-            context.lineWidth = 0.5;
-            // context.strokeStyle = '#56D118';
-            context.strokeStyle = 'gold';
 
+
+    let geojson = {}
+
+    let context = d3.select('#content canvas')
+        .node()
+        .getContext('2d');
+
+    let projection = d3.geoOrthographic();
+
+    let geoGenerator = d3.geoPath()
+        .projection(projection)
+        .pointRadius(4)
+        .context(context);
+
+    let yaw = 150;
+
+    function update() {
+        projection.rotate([yaw, -23])
+
+        context.clearRect(0, 0, 800, 600);
+
+        context.lineWidth = 0.5;
+        // context.strokeStyle = '#56D118';
+        context.strokeStyle = 'gold';
+
+        context.beginPath();
+        geoGenerator({ type: 'FeatureCollection', features: geojson.features })
+        context.stroke();
+
+
+        // Graticule
+        let graticule = d3.geoGraticule();
+        context.beginPath();
+        context.strokeStyle = 'black';
+        geoGenerator(graticule());
+        context.stroke();
+
+        yaw -= 1
+
+        let latLongConverter = d3.geoOrthographic();
+
+        // Circles
+        test.forEach(datum => {
+            let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1.2)
             context.beginPath();
-            geoGenerator({ type: 'FeatureCollection', features: geojson.features })
+            context.strokeStyle = 'red';
+            geoGenerator(circle());
             context.stroke();
-
-
-            // Graticule
-            let graticule = d3.geoGraticule();
-            context.beginPath();
-            context.strokeStyle = 'black';
-            geoGenerator(graticule());
-            context.stroke();
-
-            yaw -= 1
-
-            let latLongConverter = d3.geoOrthographic();
-
-            // Circles
-            data2010.forEach(datum => {
-                let circle = d3.geoCircle().center([Object.values(datum[1])[1], Object.values(datum[1])[0]]).radius(1.2)
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
-            });
-
-            
-
-        }
-
-        // REQUEST DATA
-        d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
-            geojson = json;
-            window.setInterval(update, 30);
         });
+
+    }
+
+    // REQUEST DATA
+    d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
+        geojson = json;
+        window.setInterval(update, 30);
     });
 
 });
