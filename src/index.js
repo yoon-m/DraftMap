@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+    function uncheckAll() {
+        $("input[type='checkbox']:checked").prop("checked", false);
+    }
+    $('.deselectAll').on('click', uncheckAll);
+    
+    function checkAll() {
+        $("input[type='checkbox']:not(:checked)").prop("checked", true);
+    }
+    $('.selectAll').on('click', checkAll);
+
     let draftLocations = [
         [-84.2700179, 37.8393332],
         [-83.03091429999999, 40.0141905],
@@ -143,11 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
         [-111.0937311, 39.3209801],
         [-121.4943996, 38.5815719],
         [-83.0457538, 42.331427],
-        [-86.1349019, 40.2671941],
+        [20.4489216, 44.786568],
         [-120.7401385, 47.7510741],
         [-118.361322, 34.0790602],
         [-74.4056612, 40.0583238],
-        [-94.6858998, 46.729553],
+        [-46.6890154, -23.5800815],
         [-0.847544, 46.741536],
         [-79.3831843, 43.653226],
         [-83.0457538, 42.331427],
@@ -208,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         [-87.6297982, 41.8781136],
         [-90.0715323, 29.95106579999999],
         [-90.0715323, 29.95106579999999],
-        [-81.3792365, 28.5383355],
+        [34.0461, 31.8516],
         [-81.3792365, 28.5383355],
         [-94.6858998, 46.729553],
         [-83.0457538, 42.331427],
@@ -268,7 +278,42 @@ document.addEventListener("DOMContentLoaded", () => {
         [-98.49362819999999, 29.4241219],
         [-75.1652215, 39.9525839],
         [-75.1652215, 39.9525839],
-        [-90.0489801, 35.1495343]
+        [-90.0489801, 35.1495343],
+        [-3.718427, 40.626607],
+        [15.9819189, 45.8150108]
+    ];
+
+    let arenas = [
+        [-84.39500960000001, 33.758264],
+        [-80.844303, 35.227947],
+        [-81.6882129, 41.496479],
+        [-105.0077106, 39.748549],
+        [-73.933087, 40.696067],
+        [-86.1555662, 39.763989],
+        [-118.3881946, 33.922003],
+        [-80.18768089999999, 25.781401],
+        [-82.64214059999999, 27.771824],
+        [-90.0767254, 29.948458],
+        [-81.3999075, 28.635669],
+        [-112.0718561, 33.445875],
+        [-97.25879309999999, 32.933946],
+        [-122.3629611, 47.621786],
+        [-111.901293, 40.767474],
+        [-71.0630784, 42.364191],
+        [-87.6741759, 41.880690],
+        [-96.810148, 32.790314],
+        [-83.2457929, 42.696884],
+        [-95.36206109999999, 29.750906],
+        [-118.2528422, 34.057377],
+        [-90.0508634, 35.143103],
+        [-87.8649495, 42.980359],
+        [-74.0921532, 40.818763],
+        [-73.9916586, 40.749831],
+        [-75.17197159999999, 39.901179],
+        [-78.76796809999999, 35.745806],
+        [-98.4374874, 29.427147],
+        [-79.3790818, 43.643520],
+        [-77.0210022, 38.898005]
     ];
 
     let geojson = {};
@@ -308,19 +353,95 @@ document.addEventListener("DOMContentLoaded", () => {
         yaw -= 1;
 
         // Circles
-        draftLocations.forEach(datum => {
-            let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1.2);
-            context.beginPath();
-            context.strokeStyle = 'red';
-            geoGenerator(circle());
-            context.stroke();
-        });
-
+        // arenas.forEach(arena => {
+        //     let circle = d3.geoCircle().center([arena[0], arena[1]]).radius(5);
+        //     context.beginPath();
+        //     context.strokeStyle = 'blue';
+        //     geoGenerator(circle());
+        //     context.stroke();
+        // });
 
         if (d3.select('.x1').property('checked')) {
-            
+            draftLocations.slice(0, 29).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
         }
-
+        if (d3.select('.x2').property('checked')) {
+            draftLocations.slice(30, 59).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x3').property('checked')) {
+            draftLocations.slice(60, 89).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x4').property('checked')) {
+            draftLocations.slice(90, 119).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x5').property('checked')) {
+            draftLocations.slice(120, 149).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x6').property('checked')) {
+            draftLocations.slice(150, 179).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x7').property('checked')) {
+            draftLocations.slice(180, 209).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x8').property('checked')) {
+            draftLocations.slice(210, 239).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
+        if (d3.select('.x9').property('checked')) {
+            draftLocations.slice(240, draftLocations.length).forEach(datum => {
+                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
+                context.beginPath();
+                context.strokeStyle = 'red';
+                geoGenerator(circle());
+                context.stroke();
+            });
+        }
         
     }
 

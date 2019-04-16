@@ -5,7 +5,7 @@
 
 body {
     background-color: black;
-    font-family: 'Lora', serif;
+    font-family: 'Cinzel', serif;
 }
 
 body canvas {
@@ -30,8 +30,9 @@ h3 {
     color: gold;
     border: 1px solid gold;
     border-radius: 5px;
-    padding: 1% 15% 2% 2%;
+    padding: 1% 10% 2% 2%;
     height: fit-content;
+    margin-top: 3%;
 }
 
 .header-container a {
@@ -46,15 +47,15 @@ h3 {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .header-left {
-    width: 70%;
+    width: 80%;
 }
 
 .header-right {
-    width: 25%;
+    width: 15%;
     display: flex;
     justify-content: flex-end;
 }
@@ -63,4 +64,26 @@ h4 {
     color: gold;
     text-align: right;
     margin-right: 1%;
+}
+
+.radio-btn {
+    width: 50%;
+    font-size: 20px;
+    color: gold;
+    background-color: black;
+    border: 1px solid gold;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+input[type=checkbox] {
+    zoom: 1.5;
+}
+
+.radio-btn:hover {
+    background-color:rgb(104, 104, 104);
+}
+
+svg {
+    background-color: red;
 }
