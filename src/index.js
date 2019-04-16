@@ -316,6 +316,18 @@ document.addEventListener("DOMContentLoaded", () => {
         [-77.0210022, 38.898005]
     ];
 
+    let yearly = [
+        90.00,
+        70.00,
+        83.33,
+        60.00,
+        66.67,
+        80.00,
+        50.00,
+        86.67,
+        80.00
+    ];
+
     let geojson = {};
 
     let context = d3.select('#content canvas')
@@ -352,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         yaw -= 1;
 
-        // Circles
+        // Arena Circles
         // arenas.forEach(arena => {
         //     let circle = d3.geoCircle().center([arena[0], arena[1]]).radius(5);
         //     context.beginPath();
@@ -360,6 +372,22 @@ document.addEventListener("DOMContentLoaded", () => {
         //     geoGenerator(circle());
         //     context.stroke();
         // });
+
+        let checked = [];
+        let sumPercentUS = 0;
+        let sumCount = 0;
+
+        d3.selectAll('.xbox').each(function (d) {
+            checked.push(d3.select(this).property('checked'));
+        });
+        if (checked.every(el => el == false)) {
+            let newVal = 0;
+            label.text(newVal);
+            needle.transition().duration(1500).ease(d3.easeElastic)
+                .attr('transform', `rotate(${angleScale(newVal)})`);
+        }
+
+        
 
         if (d3.select('.x1').property('checked')) {
             draftLocations.slice(0, 29).forEach(datum => {
@@ -369,6 +397,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[0];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[0];
+            sumCount += 1;
         }
         if (d3.select('.x2').property('checked')) {
             draftLocations.slice(30, 59).forEach(datum => {
@@ -378,6 +413,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[1];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[1];
+            sumCount += 1;
         }
         if (d3.select('.x3').property('checked')) {
             draftLocations.slice(60, 89).forEach(datum => {
@@ -387,6 +429,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[2];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[2];
+            sumCount += 1;
         }
         if (d3.select('.x4').property('checked')) {
             draftLocations.slice(90, 119).forEach(datum => {
@@ -396,6 +445,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[3];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[3];
+            sumCount += 1;
         }
         if (d3.select('.x5').property('checked')) {
             draftLocations.slice(120, 149).forEach(datum => {
@@ -405,6 +461,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[4];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[4];
+            sumCount += 1;
         }
         if (d3.select('.x6').property('checked')) {
             draftLocations.slice(150, 179).forEach(datum => {
@@ -414,6 +477,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[5];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[5];
+            sumCount += 1;
         }
         if (d3.select('.x7').property('checked')) {
             draftLocations.slice(180, 209).forEach(datum => {
@@ -423,6 +493,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[6];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[6];
+            sumCount += 1;
         }
         if (d3.select('.x8').property('checked')) {
             draftLocations.slice(210, 239).forEach(datum => {
@@ -432,6 +509,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[7];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);
+            sumPercentUS += yearly[7];
+            sumCount += 1;
+
         }
         if (d3.select('.x9').property('checked')) {
             draftLocations.slice(240, draftLocations.length).forEach(datum => {
@@ -441,7 +526,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 geoGenerator(circle());
                 context.stroke();
             });
+
+            // let newVal = yearly[8];
+            // label.text(newVal);
+            // needle.transition().duration(1500).ease(d3.easeElastic)
+            //     .attr('transform', `rotate(${angleScale(newVal)})`);   
+            sumPercentUS += yearly[8];
+            sumCount += 1;
         }
+
+        if (sumCount != 0) {
+            let newVal = sumPercentUS/sumCount;
+                label.text(newVal);
+                needle.transition().duration(1500).ease(d3.easeElastic)
+                    .attr('transform', `rotate(${angleScale(newVal)})`);
+        }
+
+        if (checked.every(el => el == true)) {
+            let newVal = 74.07;
+            label.text(newVal);
+            needle.transition().duration(1500).ease(d3.easeElastic)
+                .attr('transform', `rotate(${angleScale(newVal)})`);
+        }
+
+
         
     }
 
@@ -451,5 +559,39 @@ document.addEventListener("DOMContentLoaded", () => {
         window.setInterval(update, 25);
     });
 
-    
+
+    // gauge
+    const EXTRA_ANGLE = 15,
+        whRatio = 1 / (Math.sin(deg2rad(EXTRA_ANGLE)) + 1.1),
+        r = Math.min(window.innerWidth, window.innerHeight * whRatio) / 1.5,
+        angleScale = d3.scaleLinear().domain([0, 100]).range([-90 - EXTRA_ANGLE, 90 + EXTRA_ANGLE])
+
+    // Size canvas
+    const gaugeSVG = d3.select('#gauge')
+        .attr('width', r)
+        .attr('height', r)
+        .attr('viewBox', `${-r} ${-r} ${r * 2} ${r * 2 * whRatio}`)
+
+    // Add axis
+    gaugeSVG.append('g').classed('axis', true)
+        .call(d3.axisRadialInner(
+            angleScale.copy().range(angleScale.range().map(deg2rad)),
+            r - 5
+        ))
+
+    // Add needle
+    const needle = gaugeSVG.append('g')
+        .attr('transform', `scale(${r * 0.85})`)
+        .append('path').classed('needle', true)
+        .attr('d', ['M0 -1', 'L0.03 0', 'A 0.03 0.03 0 0 1 -0.03 0', 'Z'].join(' '))
+        .attr('transform', `rotate(${angleScale(0)})`)
+
+    // Add val label
+    const label = gaugeSVG.append('text').classed('label', true)
+        .attr('x', 0)
+        .attr('y', r * 0.2)
+        .attr('text-anchor', 'middle')
+        .text('0')
+
+    function deg2rad(deg) { return deg * Math.PI / 180 }
 });

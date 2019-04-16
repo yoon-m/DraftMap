@@ -58,12 +58,14 @@ h3 {
     width: 15%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 1%;
+    margin-right: 3%;
 }
 
 h4 {
     color: gold;
     text-align: right;
-    margin-right: 1%;
+    margin-right: 3.5%;
 }
 
 .radio-btn {
@@ -85,5 +87,51 @@ input[type=checkbox] {
 }
 
 svg {
-    background-color: red;
+    background-color: white;
+}
+
+/* bar graph */
+.axis {
+	font: 15px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6F257F;
+  padding: 14px;
+  text-align: center;
+}
+
+/* GAUGE */
+#gauge {
+    background-color: black;
+}
+
+.axis .domain, .axis .tick line {
+    stroke-width: 2px;
+    stroke: DarkSlateGrey;
+}
+
+.axis .tick text {
+    fill: gold;
+    font-size: 20px;
+}
+
+.needle {
+    fill: red;
+}
+
+.label {
+    fill: gold;
+    font-size: 24px;
 }
