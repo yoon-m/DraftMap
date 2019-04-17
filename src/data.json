@@ -1,0 +1,130 @@
+[
+    {
+        "country": "AU",
+        "frequency": 3
+    },
+    {
+        "country": "AT",
+        "frequency": 1
+    },
+    {
+        "country": "BS",
+        "frequency": 2
+    },
+    {
+        "country": "BA",
+        "frequency": 2
+    },
+    {
+        "country": "BR",
+        "frequency": 3
+    },
+    {
+        "country": "CM",
+        "frequency": 2
+    },
+    {
+        "country": "CA",
+        "frequency": 11
+    },
+    {
+        "country": "HR",
+        "frequency": 4
+    },
+    {
+        "country": "CZ",
+        "frequency": 1
+    },
+    {
+        "country": "DO",
+        "frequency": 1
+    },
+    {
+        "country": "DRC",
+        "frequency": 2
+    },
+    {
+        "country": "FI",
+        "frequency": 1
+    },
+    {
+        "country": "FR",
+        "frequency": 7
+    },
+    {
+        "country": "DE",
+        "frequency": 2
+    },
+    {
+        "country": "GR",
+        "frequency": 2
+    },
+    {
+        "country": "HT",
+        "frequency": 1
+    },
+    {
+        "country": "IL",
+        "frequency": 1
+    },
+    {
+        "country": "LV",
+        "frequency": 2
+    },
+    {
+        "country": "LT",
+        "frequency": 3
+    },
+    {
+        "country": "ME",
+        "frequency": 1
+    },
+    {
+        "country": "NZ",
+        "frequency": 1
+    },
+    {
+        "country": "NG",
+        "frequency": 3
+    },
+    {
+        "country": "PR",
+        "frequency": 1
+    },
+    {
+        "country": "RU",
+        "frequency": 1
+    },
+    {
+        "country": "SN",
+        "frequency": 1
+    },
+    {
+        "country": "RS",
+        "frequency": 3
+    },
+    {
+        "country": "SI",
+        "frequency": 1
+    },
+    {
+        "country": "ES",
+        "frequency": 3
+    },
+    {
+        "country": "CH",
+        "frequency": 1
+    },
+    {
+        "country": "TR",
+        "frequency": 2
+    },
+    {
+        "country": "UA",
+        "frequency": 1
+    },
+    {
+        "country": "VE",
+        "frequency": 1
+    }
+]

@@ -58,7 +58,7 @@ h3 {
     width: 15%;
     display: flex;
     justify-content: flex-end;
-    margin-top: 1%;
+    margin-top: 0.5%;
     margin-right: 3%;
 }
 
@@ -86,11 +86,11 @@ input[type=checkbox] {
     background-color:rgb(104, 104, 104);
 }
 
-svg {
-    background-color: white;
+/* bar graph */
+#bar {
+    background-color: black;
 }
 
-/* bar graph */
 .axis {
 	font: 15px sans-serif;
 }
@@ -124,7 +124,7 @@ svg {
 
 .axis .tick text {
     fill: gold;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .needle {
@@ -133,5 +133,5 @@ svg {
 
 .label {
     fill: gold;
-    font-size: 24px;
+    font-size: 44px;
 }

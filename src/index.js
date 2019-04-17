@@ -536,15 +536,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (sumCount != 0) {
-            let newVal = sumPercentUS/sumCount;
-                label.text(newVal);
+            let newVal = parseFloat(Math.round(sumPercentUS / sumCount * 100) / 100).toFixed(2);
+                label.text(`${newVal}%`);
                 needle.transition().duration(1500).ease(d3.easeElastic)
                     .attr('transform', `rotate(${angleScale(newVal)})`);
         }
 
         if (checked.every(el => el == true)) {
             let newVal = 74.07;
-            label.text(newVal);
+            label.text(`${newVal}%`);
             needle.transition().duration(1500).ease(d3.easeElastic)
                 .attr('transform', `rotate(${angleScale(newVal)})`);
         }
@@ -594,4 +594,98 @@ document.addEventListener("DOMContentLoaded", () => {
         .text('0')
 
     function deg2rad(deg) { return deg * Math.PI / 180 }
+
+
+
+    let countriesHash = {
+        "AU": "Australia",
+        "AT": "Austria",
+        "BS": "Bahamas",
+        "BA": "Bosnia and Herzegovina",
+        "BR": "Brazil",
+        "CM": "Cameroon",
+        "CA": "Canada",
+        "HR": "Croatia",
+        "CZ": "Czech Republic",
+        "DO": "Dominican Republic",
+        "DRC": "DR Congo",
+        "FI": "Finland",
+        "FR": "France",
+        "DE": "Germany",
+        "GR": "Greece",
+        "HT": "Haiti",
+        "IL": "Israel",
+        "LV": "Latvia",
+        "LT": "Lithuania",
+        "ME": "Montenegro",
+        "NZ": "New Zealand",
+        "NG": "Nigeria",
+        "PR": "Puerto Rico",
+        "RU": "Russia",
+        "SN": "Senegal",
+        "RS": "Serbia",
+        "SI": "Slovenia",
+        "ES": "Spain",
+        "CH": "Switzerland",
+        "TR": "Turkey",
+        "UA": "Ukraine",
+        "VE": "Venezuela"
+    };
+
+
+    // Bar Graph
+    let barGraphSVG = d3.select("#bar"),
+        margin = { top: 20, right: 20, bottom: 30, left: 50 },
+        width = +barGraphSVG.attr("width") - margin.left - margin.right,
+        height = +barGraphSVG.attr("height") - margin.top - margin.bottom;
+
+    let tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+    let x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+        y = d3.scaleLinear().rangeRound([height, 0]);
+
+    let colours = d3.scaleOrdinal()
+        .range(["#6F257F", "#CA0D59"]);
+
+    let g = barGraphSVG.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    d3.json("src/data.json", function (error, data) {
+        if (error) throw error;
+
+        x.domain(data.map(function (d) { return d.country; }));
+        y.domain([0, d3.max(data, function (d) { return d.frequency; })]);
+
+        g.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        g.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(y).ticks(6).tickFormat(function (d) { return parseInt(d); }).tickSizeInner([-width]))
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .attr("fill", "#5D6971");
+
+        g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("x", function (d) { return x(d.country); })
+            .attr("y", function (d) { return y(d.frequency); })
+            .attr("width", x.bandwidth())
+            .attr("height", function (d) { return height - y(d.frequency); })
+            .attr("fill", function (d) { return colours(d.country); })
+            .on("mousemove", function (d) {
+                tooltip
+                    .style("left", d3.event.pageX - 50 + "px")
+                    .style("top", d3.event.pageY - 70 + "px")
+                    .style("display", "inline-block")
+                    .html((countriesHash[d.country]) + "<br>" + (d.frequency) + " drafted players");
+            })
+            .on("mouseout", function (d) { tooltip.style("display", "none"); });
+    });
 });
