@@ -141,6 +141,22 @@ input[type=checkbox] {
   z-index: 100;
 }
 
+.x-btn {
+    color: gold;
+    font-size: 40px;
+    position: absolute;
+    right: 10vw;
+    top: 8vh;
+    border: 3px solid gold;
+    padding: 0.5% 1%;
+}
+
+.x-btn:hover {
+    cursor: pointer;
+    border: 3px solid white;
+    color: white;
+}
+
 /* GAUGE */
 #gauge {
     background-color: black;
