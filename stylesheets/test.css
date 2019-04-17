@@ -9,7 +9,8 @@ body {
 }
 
 body canvas {
-    margin-right: 10%;
+    margin-right: 15%;
+    margin-left: -10%;
 }
 
 h1 {
@@ -23,14 +24,14 @@ h3 {
     color: gold;
     text-align: center;
     font-size: 20px;
-    margin: 5% 0;
+    margin: 2% 0;
 }
 
 .xbox-container {
     color: gold;
     border: 1px solid gold;
     border-radius: 5px;
-    padding: 1% 10% 2% 2%;
+    padding: 1% 2% 2% 2%;
     height: fit-content;
     margin-top: 3%;
 }
@@ -69,7 +70,7 @@ h4 {
 }
 
 .radio-btn {
-    width: 50%;
+    width: 100%;
     font-size: 20px;
     color: gold;
     background-color: black;
@@ -78,17 +79,42 @@ h4 {
     margin-top: 2%;
 }
 
+.radio-btn:focus {
+    outline: 0;
+}
+
 input[type=checkbox] {
     zoom: 1.5;
 }
 
 .radio-btn:hover {
-    background-color:rgb(104, 104, 104);
+    background-color: white;
+    color: black;
+}
+
+.content-right {
+    position: relative;
 }
 
 /* bar graph */
 #bar {
     background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    display: none;
+}
+
+.bar-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.91);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
 }
 
 .axis {
@@ -110,11 +136,22 @@ input[type=checkbox] {
   border: 1px solid #6F257F;
   padding: 14px;
   text-align: center;
+  z-index: 100;
 }
 
 /* GAUGE */
 #gauge {
     background-color: black;
+    position: absolute;
+    top: 50%;
+    right: 11%;
+}
+
+p {
+    color: gold;
+    position: absolute;
+    top: 89%;
+    right: 14%;
 }
 
 .axis .domain, .axis .tick line {
@@ -124,7 +161,7 @@ input[type=checkbox] {
 
 .axis .tick text {
     fill: gold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .needle {

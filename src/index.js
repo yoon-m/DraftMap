@@ -9,6 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     $('.selectAll').on('click', checkAll);
 
+    function openGraph() {
+        document.getElementsByClassName('bar-container')[0].style.display = 'block';
+        document.getElementById('bar').style.display = 'block';
+    }
+    $('.openGraph').on('click', openGraph);
+
+    function closeGraph() {
+        document.getElementsByClassName('bar-container')[0].style.display = 'none';
+        document.getElementById('bar').style.display = 'none';
+    }
+    $('.bar-container').on('click', closeGraph);
+
     let draftLocations = [
         [-84.2700179, 37.8393332],
         [-83.03091429999999, 40.0141905],
@@ -364,15 +376,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         yaw -= 1;
 
-        // Arena Circles
-        // arenas.forEach(arena => {
-        //     let circle = d3.geoCircle().center([arena[0], arena[1]]).radius(5);
-        //     context.beginPath();
-        //     context.strokeStyle = 'blue';
-        //     geoGenerator(circle());
-        //     context.stroke();
-        // });
-
         let checked = [];
         let sumPercentUS = 0;
         let sumCount = 0;
@@ -398,10 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[0];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[0];
             sumCount += 1;
         }
@@ -414,10 +413,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[1];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[1];
             sumCount += 1;
         }
@@ -430,10 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[2];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[2];
             sumCount += 1;
         }
@@ -446,10 +437,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[3];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[3];
             sumCount += 1;
         }
@@ -462,10 +449,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[4];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[4];
             sumCount += 1;
         }
@@ -478,10 +461,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[5];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[5];
             sumCount += 1;
         }
@@ -494,10 +473,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[6];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[6];
             sumCount += 1;
         }
@@ -510,10 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[7];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);
             sumPercentUS += yearly[7];
             sumCount += 1;
 
@@ -527,10 +498,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.stroke();
             });
 
-            // let newVal = yearly[8];
-            // label.text(newVal);
-            // needle.transition().duration(1500).ease(d3.easeElastic)
-            //     .attr('transform', `rotate(${angleScale(newVal)})`);   
             sumPercentUS += yearly[8];
             sumCount += 1;
         }
@@ -548,9 +515,6 @@ document.addEventListener("DOMContentLoaded", () => {
             needle.transition().duration(1500).ease(d3.easeElastic)
                 .attr('transform', `rotate(${angleScale(newVal)})`);
         }
-
-
-        
     }
 
     // REQUEST DATA
@@ -559,34 +523,32 @@ document.addEventListener("DOMContentLoaded", () => {
         window.setInterval(update, 25);
     });
 
-
-    // gauge
+    // GAUGE
     const EXTRA_ANGLE = 15,
         whRatio = 1 / (Math.sin(deg2rad(EXTRA_ANGLE)) + 1.1),
         r = Math.min(window.innerWidth, window.innerHeight * whRatio) / 1.5,
         angleScale = d3.scaleLinear().domain([0, 100]).range([-90 - EXTRA_ANGLE, 90 + EXTRA_ANGLE])
 
-    // Size canvas
     const gaugeSVG = d3.select('#gauge')
         .attr('width', r)
         .attr('height', r)
         .attr('viewBox', `${-r} ${-r} ${r * 2} ${r * 2 * whRatio}`)
 
-    // Add axis
+    // Axis
     gaugeSVG.append('g').classed('axis', true)
         .call(d3.axisRadialInner(
             angleScale.copy().range(angleScale.range().map(deg2rad)),
             r - 5
         ))
 
-    // Add needle
+    // Needle
     const needle = gaugeSVG.append('g')
         .attr('transform', `scale(${r * 0.85})`)
         .append('path').classed('needle', true)
         .attr('d', ['M0 -1', 'L0.03 0', 'A 0.03 0.03 0 0 1 -0.03 0', 'Z'].join(' '))
         .attr('transform', `rotate(${angleScale(0)})`)
 
-    // Add val label
+    // Label
     const label = gaugeSVG.append('text').classed('label', true)
         .attr('x', 0)
         .attr('y', r * 0.2)
@@ -594,7 +556,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .text('0')
 
     function deg2rad(deg) { return deg * Math.PI / 180 }
-
 
 
     let countriesHash = {
@@ -670,6 +631,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
             .attr("fill", "#5D6971");
+
+        g.append("text")
+            .attr("x", (width / 2))
+            .attr("y", 11)
+            .attr("text-anchor", "middle")
+            .style("font-size", "26px")
+            .style("text-decoration", "underline")
+            .style('fill', 'gold')
+            .text("Non-US Drafted Players 2010-2018");
 
         g.selectAll(".bar")
             .data(data)

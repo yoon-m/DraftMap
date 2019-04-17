@@ -43,31 +43,40 @@
         
         <div id='content'>
             <canvas width='730' height='510'></canvas>
-            <div class='xbox-container'>
-                <h3>Select draft classes to display:</h3>
-                <input type="checkbox" name="2010" class='xbox x1' checked>2010<br>
-                <input type="checkbox" name="2011" class='xbox x2' checked>2011<br>
-                <input type="checkbox" name="2012" class='xbox x3' checked>2012<br>
-                <input type="checkbox" name="2013" class='xbox x4' checked>2013<br>
-                <input type="checkbox" name="2014" class='xbox x5' checked>2014<br>
-                <input type="checkbox" name="2015" class='xbox x6' checked>2015<br>
-                <input type="checkbox" name="2016" class='xbox x7' checked>2016<br>
-                <input type="checkbox" name="2017" class='xbox x8' checked>2017<br>
-                <input type="checkbox" name="2018" class='xbox x9' checked>2018<br>
+           
+            <div className='content-right'>
+                <div class='xbox-container'>
+                    <h3>Select draft classes to display:</h3>
+                    <input type="checkbox" name="2010" class='xbox x1' checked>2010
+                    <input type="checkbox" name="2011" class='xbox x2' checked>2011
+                    <input type="checkbox" name="2012" class='xbox x3' checked>2012
+                    <input type="checkbox" name="2013" class='xbox x4' checked>2013
+                    <input type="checkbox" name="2014" class='xbox x5' checked>2014
+                    <input type="checkbox" name="2015" class='xbox x6' checked>2015
+                    <input type="checkbox" name="2016" class='xbox x7' checked>2016
+                    <input type="checkbox" name="2017" class='xbox x8' checked>2017
+                    <input type="checkbox" name="2018" class='xbox x9' checked>2018<br>
+                    
+                    <button class='radio-btn selectAll'>
+                        Select All
+                    </button>
+                    <button class='radio-btn deselectAll'>
+                        Deselect All
+                    </button>
+                    <button class='radio-btn openGraph'>
+                        Open Graph
+                    </button>
+                </div>
                 
-                <button class='radio-btn selectAll'>
-                    Select All
-                </button>
-                <button class='radio-btn deselectAll'>
-                    Deselect All
-                </button>
+                <svg id='gauge'></svg>
+                <p>% of selected players from USA</p>
+                
             </div>
 
-            <div>
+            <div class='bar-container'>
             </div>
+            <svg id='bar' width="1200" height="500"></svg>
         </div>
-        <svg id='gauge'></svg>
-
-        <svg id='bar' width="1200" height="500"></svg>
+        
     </body>
 </html>
