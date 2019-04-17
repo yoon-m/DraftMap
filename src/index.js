@@ -295,39 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
         [15.9819189, 45.8150108]
     ];
 
-    let arenas = [
-        [-84.39500960000001, 33.758264],
-        [-80.844303, 35.227947],
-        [-81.6882129, 41.496479],
-        [-105.0077106, 39.748549],
-        [-73.933087, 40.696067],
-        [-86.1555662, 39.763989],
-        [-118.3881946, 33.922003],
-        [-80.18768089999999, 25.781401],
-        [-82.64214059999999, 27.771824],
-        [-90.0767254, 29.948458],
-        [-81.3999075, 28.635669],
-        [-112.0718561, 33.445875],
-        [-97.25879309999999, 32.933946],
-        [-122.3629611, 47.621786],
-        [-111.901293, 40.767474],
-        [-71.0630784, 42.364191],
-        [-87.6741759, 41.880690],
-        [-96.810148, 32.790314],
-        [-83.2457929, 42.696884],
-        [-95.36206109999999, 29.750906],
-        [-118.2528422, 34.057377],
-        [-90.0508634, 35.143103],
-        [-87.8649495, 42.980359],
-        [-74.0921532, 40.818763],
-        [-73.9916586, 40.749831],
-        [-75.17197159999999, 39.901179],
-        [-78.76796809999999, 35.745806],
-        [-98.4374874, 29.427147],
-        [-79.3790818, 43.643520],
-        [-77.0210022, 38.898005]
-    ];
-
     let yearly = [
         90.00,
         70.00,
@@ -346,8 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .node()
         .getContext('2d');
 
-    let projection = d3.geoOrthographic()
-        // .scale(250);
+    let projection = d3.geoOrthographic();
 
     let geoGenerator = d3.geoPath()
         .projection(projection)
@@ -375,11 +341,12 @@ document.addEventListener("DOMContentLoaded", () => {
         geoGenerator(graticule());
         context.stroke();
 
-        yaw -= 1;
+        yaw -= 0.7;
 
         let checked = [];
         let sumPercentUS = 0;
         let sumCount = 0;
+        let plotLocs = [];
 
         d3.selectAll('.xbox').each(function (d) {
             checked.push(d3.select(this).property('checked'));
@@ -391,118 +358,81 @@ document.addEventListener("DOMContentLoaded", () => {
                 .attr('transform', `rotate(${angleScale(newVal)})`);
         }
 
-        
-
         if (d3.select('.x1').property('checked')) {
             draftLocations.slice(0, 29).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[0];
             sumCount += 1;
         }
         if (d3.select('.x2').property('checked')) {
             draftLocations.slice(30, 59).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[1];
             sumCount += 1;
         }
         if (d3.select('.x3').property('checked')) {
             draftLocations.slice(60, 89).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[2];
             sumCount += 1;
         }
         if (d3.select('.x4').property('checked')) {
             draftLocations.slice(90, 119).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[3];
             sumCount += 1;
         }
         if (d3.select('.x5').property('checked')) {
             draftLocations.slice(120, 149).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[4];
             sumCount += 1;
         }
         if (d3.select('.x6').property('checked')) {
             draftLocations.slice(150, 179).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[5];
             sumCount += 1;
         }
         if (d3.select('.x7').property('checked')) {
             draftLocations.slice(180, 209).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[6];
             sumCount += 1;
         }
         if (d3.select('.x8').property('checked')) {
             draftLocations.slice(210, 239).forEach(datum => {
-                let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
-                context.beginPath();
-                context.strokeStyle = 'red';
-                geoGenerator(circle());
-                context.stroke();
+                plotLocs.push(datum);
             });
-
             sumPercentUS += yearly[7];
             sumCount += 1;
 
         }
         if (d3.select('.x9').property('checked')) {
             draftLocations.slice(240, draftLocations.length).forEach(datum => {
+                plotLocs.push(datum);
+            });
+            sumPercentUS += yearly[8];
+            sumCount += 1;
+        }
+
+        // plot locations
+        plotLocs.forEach(datum => {
                 let circle = d3.geoCircle().center([datum[0], datum[1]]).radius(1);
                 context.beginPath();
                 context.strokeStyle = 'red';
                 geoGenerator(circle());
                 context.stroke();
-            });
+        });
 
-            sumPercentUS += yearly[8];
-            sumCount += 1;
-        }
-
+        // set gauge
         if (sumCount != 0) {
             let newVal = parseFloat(Math.round(sumPercentUS / sumCount * 100) / 100).toFixed(2);
                 label.text(`${newVal}%`);
@@ -594,7 +524,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "VE": "Venezuela"
     };
 
-
     // Bar Graph
     let barGraphSVG = d3.select("#bar"),
         margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -612,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let g = barGraphSVG.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.json("src/data.json", function (error, data) {
+    d3.json("src/non_US_data.json", function (error, data) {
         if (error) throw error;
 
         x.domain(data.map(function (d) { return d.country; }));
