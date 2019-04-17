@@ -1,6 +1,7 @@
 #content {
-    margin-top: 3%;
+    margin-top: 0.5%;
     display: flex;
+    justify-content: center;
 }
 
 body {
@@ -48,7 +49,7 @@ h3 {
 
 .header-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .header-left {
@@ -142,16 +143,22 @@ input[type=checkbox] {
 /* GAUGE */
 #gauge {
     background-color: black;
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    right: 11%;
+    right: 11%; */
+    display: block;
+    margin: 0 auto;
+    margin-top: -5%;
+    margin-bottom: -2%;
 }
 
 p {
     color: gold;
-    position: absolute;
+    /* position: absolute;
     top: 89%;
-    right: 14%;
+    right: 14%; */
+    text-align: center;
+    margin-top: 7%;
 }
 
 .axis .domain, .axis .tick line {
@@ -171,4 +178,10 @@ p {
 .label {
     fill: gold;
     font-size: 44px;
+}
+
+@media only screen and (min-width: 1800px) {
+    #content {
+        margin-top: 3%;
+    }
 }
