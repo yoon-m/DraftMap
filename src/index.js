@@ -346,7 +346,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .node()
         .getContext('2d');
 
-    let projection = d3.geoOrthographic();
+    let projection = d3.geoOrthographic()
+        // .scale(250);
 
     let geoGenerator = d3.geoPath()
         .projection(projection)
