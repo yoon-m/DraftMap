@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let yaw = 150;
 
     function update() {
-        projection.rotate([yaw, -23]);
+        projection.rotate([yaw, -13]);
 
         context.clearRect(0, 0, 800, 600);
 
