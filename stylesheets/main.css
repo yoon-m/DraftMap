@@ -97,6 +97,7 @@ input[type=checkbox] {
 
 .content-right {
     position: relative;
+    width: fit-content;
 }
 
 /* bar graph */
