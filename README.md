@@ -1,5 +1,6 @@
 # NBA Draft Data Visualization
 ## Highlights
+![](globe-gif.gif)
 ![](gauge-gif.gif)
 
 ## Background and Overview
