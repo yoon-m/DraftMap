@@ -1,4 +1,7 @@
 # NBA Draft Data Visualization
+## Highlights
+![](gauge-gif.gif)
+
 ## Background and Overview
     The goal of this project is to create a visual representation of data related to 
     the players that are drafted into the NBA each year. Users will be able to see 
