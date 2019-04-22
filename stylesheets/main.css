@@ -196,3 +196,7 @@ p {
         margin-top: 3%;
     }
 }
+
+.header-right a {
+    text-decoration: none;
+}
