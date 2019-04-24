@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
         geoGenerator(graticule());
         context.stroke();
 
-        yaw -= 0.7;
+        yaw -= 1;
 
         let checked = [];
         let sumPercentUS = 0;
@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // REQUEST DATA
     d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
         geojson = json;
-        window.setInterval(update, 25);
+        window.setInterval(update, 30);
     });
 
     // GAUGE
@@ -566,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .attr("x", (width / 2))
             .attr("y", 11)
             .attr("text-anchor", "middle")
-            .style("font-size", "26px")
+            .style("font-size", "22px")
             .style("text-decoration", "underline")
             .style('fill', 'gold')
             .text("Non-US Drafted Players 2010-2018");
