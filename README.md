@@ -22,7 +22,7 @@ The goal of this project is to create a visual representation of data related to
 - Used to geocode drafted players' college locations
 
 ## Implementation Timeline
-###Day 1:
+### Day 1:
 - Become familiar with the basics of D3 
 - Test external API using Postman
 - Set up initial Node API backend to test API
