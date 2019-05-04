@@ -210,3 +210,92 @@ p {
 a {
     text-decoration: none;
 }
+
+/* MEDIA QUERIES */
+
+/* PHONES */
+/* Portrait and Landscape */
+@media only screen 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    p {
+        margin-top: 4%;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    #content {
+        flex-direction: column;
+    }
+
+    body canvas {
+        margin: 0;
+        margin: 5vh 25vw 5vh 0;
+    }
+
+    .x-btn {
+        top: 30vh;
+        right: 0;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (max-device-width: 1000px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    #content {
+        flex-direction: column;
+    }
+
+    body canvas {
+        transform: scale(1, 1);
+    }
+
+    .header-container {
+        margin-top: -5vh;
+    }
+
+    .x-btn {
+        top: 40vh;
+        right: 0;
+    }
+}
+
+/* TABLET */
+
+/* Portrait */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #content {
+        flex-direction: column;
+    }
+
+    body canvas {
+        margin: 0;
+        margin: 5vh 25vw 5vh 0;
+    }
+
+    .x-btn {
+        top: 40vh;
+        right: 0;
+    }
+
+    p {
+        margin-top: 4%;
+    }
+}
+
+/* Landscape */
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    #content {
+        margin-top: 5%;
+    }
+
+    p {
+        margin-top: 4%;
+    }
+}
