@@ -121,7 +121,7 @@ input[type=checkbox] {
 
 .bar-container {
     width: 100vw;
-    height: 100vh;
+    height: 500vh;
     background-color: rgba(0, 0, 0, 0.91);
     position: absolute;
     top: 0;
