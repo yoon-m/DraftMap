@@ -1,4 +1,5 @@
 # NBA Draft Data Visualization
+[Check out the live site!](https://github.com/yoon-m/DraftMap)
 ## Highlights
 ![](globe-gif.gif)![](gauge-gif.gif)
 
